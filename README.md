@@ -1,8 +1,6 @@
-# nvim
-nvim config
+My overall config
 
-terminal stuff: 
+- shell: [zsh](https://www.zsh.org/https://www.zsh.org/) + [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
+- colorscheme: [Pencil Dark colorscheme](https://mayccoll.github.io/Gogh/)
+- font: `SF Mono Semibold 14 pt.`
 
-- [Pencil Dark colorscheme](https://mayccoll.github.io/Gogh/)
-
-- [gnome-tweaks](https://askubuntu.com/questions/63837/how-to-change-the-color-themes-in-gnome-3) for Advaita-Dark

@@ -28,7 +28,7 @@ if !filereadable(vim_plug_path)
     echo ""
     if using_neovim
         silent !mkdir -p ~/.config/nvim/autoload
-        silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+       silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     else
         silent !mkdir -p ~/.vim/autoload
         silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -70,9 +70,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 " Search results counter
 Plug 'vim-scripts/IndexedSearch'
-" A couple of nice colorschemes
-" Plug 'fisadev/fisa-vim-colorscheme'
-Plug 'patstockwell/vim-monokai-tasty'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -220,9 +217,6 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
     if !has('gui_running')
         let &t_Co = 256
     endif
-    colorscheme molokai
-else
-    colorscheme delek
 endif
 
 " needed so deoplete can auto select the first suggestion
@@ -243,14 +237,10 @@ ca w!! w !sudo tee "%"
 " tab navigation mappings
 map tt :tabnew 
 map <M-Right> :tabn<CR>
-imap <M-Right> <ESC>:tabn<CR>
 map <M-Left> :tabp<CR>
+imap <M-Right> <ESC>:tabn<CR>
 imap <M-Left> <ESC>:tabp<CR>
-
-" remap escape 
-imap ;; <Esc> 
-
-" remap replace all 
+imap §§ <Esc> 
 nnoremap S :%s//g<Left><Left>
 
 " when scrolling, keep cursor 3 lines away from screen border
@@ -466,3 +456,5 @@ endif
 if filereadable(expand(custom_configs_path))
   execute "source " . custom_configs_path
 endif
+
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | silent! pclose | endif
