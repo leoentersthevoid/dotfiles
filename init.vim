@@ -131,6 +131,9 @@ Plug 'neomake/neomake'
 Plug 'myusuf3/numbers.vim'
 " Nice icons in the file explorer and file type status line.
 Plug 'ryanoasis/vim-devicons'
+" Others
+Plug 'morhetz/gruvbox'
+
 
 if using_vim
     " Consoles as buffers (neovim has its own consoles as buffers)
@@ -218,6 +221,7 @@ if has('gui_running') || using_neovim || (&term =~? 'mlterm\|xterm\|xterm-256\|s
         let &t_Co = 256
     endif
 endif
+
 
 " needed so deoplete can auto select the first suggestion
 set completeopt+=noinsert
@@ -458,3 +462,15 @@ if filereadable(expand(custom_configs_path))
 endif
 
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | silent! pclose | endif
+
+" Buffer navigation
+map gnn :bn<cr>
+map gpp :bp<cr> 
+map gdd :bd<cr>
+
+" Toggle NerdTree easier
+map <ESC><ESC> <F3>  
+
+colorscheme gruvbox
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
