@@ -1,0 +1,5 @@
+{
+    "python.linting.enabled"           : false,
+    "python.analysis.typeCheckingMode" : "off",
+    "pyright.disableDiagnostics"       : true
+}

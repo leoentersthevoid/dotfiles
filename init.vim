@@ -310,11 +310,18 @@ let g:choosewin_overlay_enable = 1
 
 " signify
 
+" nicer colors
+highlight DiffAdd           cterm=bold ctermbg=237  ctermfg=119
+highlight DiffDelete        cterm=bold ctermbg=237  ctermfg=167
+highlight DiffChange        cterm=bold ctermbg=237  ctermfg=237
+highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
+highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
+highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
+
 set updatetime=100
 
 "this first setting decides in which order try to guess your current vcs
 let g:signify_vcs_list = ['git', 'hg']
-
 let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 
 " Custom configurations 
@@ -336,11 +343,3 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | silent! pclose | endif
 colorscheme gruvbox
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
-" this is hacking! I couldn't find any other way to remove the ! from git tracking 
-" moreover, the params gotta be tweaked according to the GUI
-highlight DiffAdd           cterm=bold ctermbg=237  ctermfg=119
-highlight DiffDelete        cterm=bold ctermbg=237  ctermfg=167
-highlight DiffChange        cterm=bold ctermbg=237  ctermfg=237
-highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
-highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
-highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=237
