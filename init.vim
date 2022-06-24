@@ -62,7 +62,6 @@ Plug 'vim-scripts/IndexedSearch'
 
 " Airline
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 " Git/mercurial/others diff icons on the side of the file lines (https://github.com/mhinz/vim-signify)
 Plug 'mhinz/vim-signify'
@@ -105,6 +104,9 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 " Nicely align stuff (godlygeek/tabular)
 Plug 'godlygeek/tabular'
+
+" Align imports
+Plug 'brentyi/isort.vim'
 
 if using_vim
     " Consoles as buffers (https://code.google.com/archive/p/conque/)
@@ -205,7 +207,7 @@ map gdd :bd<cr>
 " if you're using a Mac:
 imap §§ <Esc>
 " if you're using a Linux:
-"imap `` <Esc>
+"imap `` <ESC>
 
 " find and replace
 nnoremap S :%s//g<Left><Left>
@@ -308,20 +310,15 @@ nmap  -  <Plug>(choosewin)
 " show big letters
 let g:choosewin_overlay_enable = 1
 
+" airline
+let g:airline#extensions#tagbar#enabled = 0
+
 " signify
-
-" nicer colors
-highlight DiffAdd           cterm=bold ctermbg=237  ctermfg=119
-highlight DiffDelete        cterm=bold ctermbg=237  ctermfg=167
-highlight DiffChange        cterm=bold ctermbg=237  ctermfg=237
-highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
-highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
-highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
-
 set updatetime=100
 
 "this first setting decides in which order try to guess your current vcs
 let g:signify_vcs_list = ['git', 'hg']
+
 let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 
 " Custom configurations 
@@ -343,3 +340,9 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | silent! pclose | endif
 colorscheme gruvbox
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
+highlight DiffAdd           cterm=bold ctermbg=237  ctermfg=119
+highlight DiffDelete        cterm=bold ctermbg=237  ctermfg=167
+highlight DiffChange        cterm=bold ctermbg=237  ctermfg=110
+highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
+highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
+highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=110
