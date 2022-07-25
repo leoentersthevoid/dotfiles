@@ -61,7 +61,7 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-scripts/IndexedSearch'
 
 " Airline
-Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
 
 " Git/mercurial/others diff icons on the side of the file lines (https://github.com/mhinz/vim-signify)
 Plug 'mhinz/vim-signify'
@@ -93,6 +93,10 @@ Plug 'lilydjwg/colorizer'
 " Window chooser (https://github.com/t9md/vim-choosewin)
 Plug 't9md/vim-choosewin'
 
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 " Git integration (https://github.com/tpope/vim-fugitive)
 Plug 'tpope/vim-fugitive'
 
@@ -107,6 +111,9 @@ Plug 'godlygeek/tabular'
 
 " Align imports
 Plug 'brentyi/isort.vim'
+
+" colorschemes
+Plug 'sainnhe/sonokai'
 
 if using_vim
     " Consoles as buffers (https://code.google.com/archive/p/conque/)
@@ -205,9 +212,9 @@ map gdd :bd<cr>
 
 " better transition from insert mode to normal mode 
 " if you're using a Mac:
-imap §§ <Esc>
+"imap §§ <Esc>
 " if you're using a Linux:
-"imap `` <ESC>
+imap `` <ESC>
 
 " find and replace
 nnoremap S :%s//g<Left><Left>
@@ -225,6 +232,9 @@ set shell=/bin/bash
 
 " Plugins settings 
 " -----------------------------
+"  airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " coc 
 
@@ -310,15 +320,11 @@ nmap  -  <Plug>(choosewin)
 " show big letters
 let g:choosewin_overlay_enable = 1
 
-" airline
-let g:airline#extensions#tagbar#enabled = 0
-
 " signify
 set updatetime=100
 
-"this first setting decides in which order try to guess your current vcs
+" this first setting decides in which order try to guess your current vcs
 let g:signify_vcs_list = ['git', 'hg']
-
 let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 
 " Custom configurations 
@@ -337,12 +343,12 @@ endif
 
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | silent! pclose | endif
 
-colorscheme gruvbox
-let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+" uncomment for a more bright color display
+"if has('termguicolors')
+    "set termguicolors
+"endif
 
-highlight DiffAdd           cterm=bold ctermbg=237  ctermfg=119
-highlight DiffDelete        cterm=bold ctermbg=237  ctermfg=167
-highlight DiffChange        cterm=bold ctermbg=237  ctermfg=110
-highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
-highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
-highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=110
+colorscheme sonokai
+let g:sonokai_better_performance = 1
+let g:sonokai_disable_italic_comment = 0
+
